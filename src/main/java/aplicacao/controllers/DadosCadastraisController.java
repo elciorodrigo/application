@@ -7,6 +7,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Controller;
 
+import aplicacao.filtros.Login;
 import aplicacao.model.DadosCadastrais;
 
 @Controller
@@ -19,15 +20,15 @@ public class DadosCadastraisController {
 	private Document homePage;
 	private DadosCadastrais dadosCadastrais;
 	
-	public DadosCadastrais carregarDados() throws IOException{
+	public DadosCadastrais carregarDados(Login login) throws IOException{
 
 	response = Jsoup.connect(LINKPRINCIPAL).method(Connection.Method.GET).execute();
 			
 	loginPage = response.parse();
 
 	response = Jsoup.connect("http://www.sectrainfo.com.br/web_logatti/Login.aspx")
-	 		.data("ctl00$MainContent$txtAluno","3313-381")
-			.data("ctl00$MainContent$txtSenha","418088")
+	 		.data("ctl00$MainContent$txtAluno", login.getRa())
+			.data("ctl00$MainContent$txtSenha", login.getSenha())
 	        .data("ctl00$MainContent$btnLogar","Entrar")
 	        .data("__VIEWSTATE", loginPage.getElementById("__VIEWSTATE").val())
 	        .data("__EVENTVALIDATION", loginPage.getElementById("__EVENTVALIDATION").val())
