@@ -24,8 +24,12 @@ public class DadosCadastraisAPI {
 		@CrossOrigin(origins = "*")
 		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.GET)
 		public DadosCadastrais listar(HttpServletResponse response) throws IOException {
-			
+			/*
+			 * teste=== commit 
+			 */
 			return dadosCadastrais.carregarDados();
 	    }
+		
+	
 	
 }
