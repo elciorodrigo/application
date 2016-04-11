@@ -2,8 +2,6 @@ package aplicacao.api;
 
 import java.io.IOException;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +20,13 @@ public class DadosCadastraisAPI {
 		@Autowired
 		private DadosCadastraisController dadosCadastrais;
 		
+		
+		
+		
 		@ResponseBody
 		@CrossOrigin(origins = "*")
-		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.GET)
-		public DadosCadastrais listar(@RequestParam("login") Login login, HttpServletResponse response) throws IOException {
+		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.POST)
+		public DadosCadastrais listar( @RequestParam(value = "login") Login login) throws IOException {
 			/*
 			 * teste=== commit 
 			 */
