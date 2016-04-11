@@ -23,15 +23,22 @@ public class DadosCadastraisAPI {
 		
 		
 		
-		@ResponseBody
+		
 		@CrossOrigin(origins = "*")
 		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.POST)
-		public DadosCadastrais listar( @RequestParam(value = "login") Login login) throws IOException {
+		public DadosCadastrais listar( @RequestBody Login login) throws IOException {
 			/*
 			 * teste=== commit 
 			 */
 			return dadosCadastrais.carregarDados(login);
 	    }
+	    
+	    
+	   
+
+
+	    
+	    
 		
 	
 	
