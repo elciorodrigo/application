@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,8 +20,8 @@ public class DadosCadastraisAPI {
 		
 		
 		@CrossOrigin(origins = "*")
-		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.POST)
-		public DadosCadastrais listar( @RequestBody Login login) throws IOException {
+		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.GET)
+		public DadosCadastrais logar(Login login) throws IOException {
 			/*
 			 * teste=== commit 
 			 */
@@ -33,4 +32,3 @@ public class DadosCadastraisAPI {
 	
 	
 }
-
