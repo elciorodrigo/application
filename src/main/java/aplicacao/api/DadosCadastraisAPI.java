@@ -25,7 +25,7 @@ public class DadosCadastraisAPI {
 		
 		@ResponseBody
 		@CrossOrigin(origins = "*")
-		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.GET)
+		@RequestMapping(value = "/dadosCadastrais", method = RequestMethod.POST)
 		public DadosCadastrais listar( @RequestParam(value = "login") Login login) throws IOException {
 			/*
 			 * teste=== commit 
