@@ -1,12 +1,27 @@
 package aplicacao.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DadosCadastrais {
 	
 	private String nome;
 	private String rA;
 	private String turma;
 	private String situacao;
+	private List<Disciplinas> disciplinas;
 	
+	public List<Disciplinas> getDisciplinas() {
+
+		if (disciplinas == null) {
+			disciplinas = new ArrayList<Disciplinas>();
+		}
+		
+		return disciplinas;
+	}
+	public void setDisciplinas(List<Disciplinas> disciplinas) {
+		this.disciplinas = disciplinas;
+	}
 	public String getNome() {
 		return nome;
 	}

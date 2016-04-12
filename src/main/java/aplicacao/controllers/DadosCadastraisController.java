@@ -9,16 +9,19 @@ import org.springframework.stereotype.Controller;
 
 import aplicacao.filtros.Login;
 import aplicacao.model.DadosCadastrais;
+import aplicacao.model.Disciplinas;
 
 @Controller
 public class DadosCadastraisController {
 
 	private final String LINKPRINCIPAL = "http://www.sectrainfo.com.br/web_logatti/Login.aspx";
 	private final String LINK = "http://www.sectrainfo.com.br/web_logatti/DadosCadastrais.aspx"; 
+	private final String DISCIPLINAS = "http://www.sectrainfo.com.br/web_logatti/DisciplinasMatriculadas.aspx";
 	private Connection.Response response;
 	private Document loginPage;		
 	private Document homePage;
 	private DadosCadastrais dadosCadastrais;
+	
 	
 	public DadosCadastrais carregarDados(Login login) throws IOException{
 
@@ -45,6 +48,23 @@ public class DadosCadastraisController {
 	dadosCadastrais.setTurma(homePage.getElementById("MainContent_lblTermo").text());
 	dadosCadastrais.setSituacao(homePage.getElementById("MainContent_lblStatus").text());
 	
+	
+	Document htmlDisciplinas = Jsoup.connect(DISCIPLINAS).cookies(response.cookies()).get();
+	
+	for(int i=0; i < htmlDisciplinas.getElementsByTag("td").size(); i++){
+		
+		if(htmlDisciplinas.getElementsByTag("td").get(i).text().equals("M")){
+			
+			dadosCadastrais.getDisciplinas().add(
+					new Disciplinas(htmlDisciplinas.getElementsByTag("td").get(i+2).text(),
+					htmlDisciplinas.getElementsByTag("td").get(i+3).text(),
+					htmlDisciplinas.getElementsByTag("td").get(i+4).text(),
+					htmlDisciplinas.getElementsByTag("td").get(i+5).text(),
+					htmlDisciplinas.getElementsByTag("td").get(i+6).text()));
+			
+		}
+	}
+	
 	//DisciplinasMatriculadas a = new DisciplinasMatriculadas();
 	//a.pegarDisciplinas(response);
 	
@@ -52,3 +72,37 @@ public class DadosCadastraisController {
 	
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

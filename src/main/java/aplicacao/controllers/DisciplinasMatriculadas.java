@@ -16,15 +16,12 @@ public class DisciplinasMatriculadas {
 		       .cookies(response.cookies())
 		        .get();
 		
-		//Document homePage = Jsoup.connect("http://www.sectrainfo.com.br/web_logatti/Historico.aspx")
-		 //       .cookies(response.cookies())
-		  //      .get();
-		
-		
-		
 		for(int i=0; i < homePage.getElementsByTag("td").size(); i++){
 				
 				if(homePage.getElementsByTag("td").get(i).text().equals("M")){
+					
+					
+					
 					System.out.println(homePage.getElementsByTag("td").get(i+2).text() + 
 			     	" : " +homePage.getElementsByTag("td").get(i+3).text()+
 					" : " + homePage.getElementsByTag("td").get(i+4).text()+
