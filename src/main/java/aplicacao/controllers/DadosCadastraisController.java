@@ -45,7 +45,10 @@ public class DadosCadastraisController {
 	dadosCadastrais.setTurma(homePage.getElementById("MainContent_lblTermo").text());
 	dadosCadastrais.setSituacao(homePage.getElementById("MainContent_lblStatus").text());
 	
-	return dadosCadastrais;	
+	//DisciplinasMatriculadas a = new DisciplinasMatriculadas();
+	//a.pegarDisciplinas(response);
+	
+		return dadosCadastrais;	
 	
 	}
 }
