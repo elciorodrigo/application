@@ -52,7 +52,7 @@ public class Disciplinas {
 	
 	
 	private String verifidaInformacaoNula(String input){
-		if(input!=null || !input.isEmpty()){
+		if(input!=null && !input.isEmpty()){
 			return input;
 		}else return "Sem Lançamento";
 	}
