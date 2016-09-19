@@ -14,7 +14,7 @@ import aplicacao.model.Disciplinas;
 @Controller
 public class DadosCadastraisController {
 
-	private final String LINKPRINCIPAL = "http://www.sectrainfo.com.br/web_logatti/Login.aspx";
+	private final String LINKPRINCIPAL = "http://www.sectrainfo.com.br/web_logatti/";
 	private final String LINK = "http://www.sectrainfo.com.br/web_logatti/DadosCadastrais.aspx"; 
 	private final String DISCIPLINAS = "http://www.sectrainfo.com.br/web_logatti/DisciplinasMatriculadas.aspx";
 	private Connection.Response response;
@@ -29,7 +29,7 @@ public class DadosCadastraisController {
 			
 	loginPage = response.parse();
 
-	response = Jsoup.connect("http://www.sectrainfo.com.br/web_logatti/Login.aspx")
+	response = Jsoup.connect("http://www.sectrainfo.com.br/web_logatti/")
 	 		.data("ctl00$MainContent$txtAluno", login.getRa())
 			.data("ctl00$MainContent$txtSenha", login.getSenha())
 	        .data("ctl00$MainContent$btnLogar","Entrar")
@@ -65,12 +65,10 @@ public class DadosCadastraisController {
 		}
 	}
 	
-	//DisciplinasMatriculadas a = new DisciplinasMatriculadas();
-	//a.pegarDisciplinas(response);
-	
 		return dadosCadastrais;	
 	
 	}
+	
 }
 
 
