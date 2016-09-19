@@ -23,7 +23,10 @@ public class DadosCadastraisController {
 	private DadosCadastrais dadosCadastrais;
 	
 	
+	
 	public DadosCadastrais carregarDados(Login login) throws IOException{
+		
+		System.out.println("tsete");
 
 	response = Jsoup.connect(LINKPRINCIPAL).method(Connection.Method.GET).execute();
 			
